@@ -13,16 +13,16 @@ El proyecto se encuentra organizado modularmente por carpetas independientes par
 ```
 taller_sintaxis/
 ├── ejer_1/                 # Punto 1: Conceptos y representación de árboles
-│   └── .gitkeep
+│   └── .
 ├── ejer_2/                 # Punto 2: Construcción de un árbol de expresiones
-│   └── .gitkeep
+│   └── .
 ├── ejer_3/                 # Punto 3: Recorridos en profundidad (DFS)
-│   └── .gitkeep
+│   └── .
 ├── ejer_4/                 # Punto 4: Recorrido en anchura (BFS)
 │   ├── punto4_bfs.py       # Implementación algorítmica de BFS
 │   └── README.md           # Documentación técnica y análisis del Punto 4
 ├── ejer_5/                 # Punto 5: Aplicación al análisis sintáctico
-│   └── .gitkeep
+│   └── .
 └── README.md               # Documentación general del repositorio (este archivo)
 
 ```
