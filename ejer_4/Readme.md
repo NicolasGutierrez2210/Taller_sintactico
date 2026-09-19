@@ -1,5 +1,5 @@
 
-## Punto 4. Recorrido en Anchura: BFS en Árboles Generales
+# Punto 4. Recorrido en Anchura: BFS en Árboles Generales
 
 **Curso:** Lenguajes de Programación y Traducción  
 **Tema:** Estructuras de datos para el análisis sintáctico descendente  
