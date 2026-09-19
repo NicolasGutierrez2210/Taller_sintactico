@@ -23,7 +23,7 @@ taller_sintaxis/
 │   └── README.md           # Documentación técnica y análisis del Punto 4
 ├── ejer_5/                 # Punto 5: Aplicación al análisis sintáctico
 │   └── .
-└── README.md               # Documentación general del repositorio (este archivo)
+└── README.md               # Documentación general del repositorio 
 
 ```
 
