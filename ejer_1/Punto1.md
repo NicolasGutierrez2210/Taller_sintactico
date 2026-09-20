@@ -20,7 +20,7 @@ Aquí está el árbol dibujado con sus conexiones, niveles y la diferenciación 
 
 ![Árbol General del Punto 1](imagenes/arbol_punto1.png)
 
-![Árbol General del Punto 1](./imagenes/arbol_punto1.png)
+![Árbol General del Punto 1](../imagenes/arbol_punto1.png)
 
 *(Explicación de cómo lo dibujé: Empecé colocando la raíz **A** arriba en el Nivel 0. Como **A** tiene tres hijos (**B, C, D**), los coloqué en el Nivel 1. Luego fui sacando los hijos de cada uno: de **B** saqué a **E** y **F**, de **C** saqué a **G**, y de **D** saqué a **H** e **I** en el Nivel 2. Por último, en el Nivel 3 dibujé a **J** que es hijo de **F**, y a **K** y **L** que son hijos de **H**).*
 
