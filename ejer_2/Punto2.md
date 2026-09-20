@@ -1,8 +1,5 @@
 # Taller de Árboles - Punto 2: Construcción de un Árbol de Expresiones
-**Materia:** Lenguajes de Programación y Traducción  
-**Estudiante:** Yeimy Beltrán  
 
----
 
 ## ¿De qué trata este punto?
 En este punto nos dan la siguiente expresión matemática:
@@ -11,7 +8,7 @@ $$(a + 3) \times (b - 2) + \frac{c}{4}$$
 
 El objetivo es analizar sus partes, armar manualmente el árbol binario de expresión respetando la jerarquía de las operaciones, hacer los tres recorridos principales (preorden, inorden y postorden), y luego calcular el resultado paso a paso evaluando el árbol desde las hojas hasta la raíz con los valores $a = 5$, $b = 8$ y $c = 12$.
 
----
+
 
 ## 1. Operandos y Operadores
 
@@ -30,7 +27,7 @@ Separé los elementos de la expresión de la siguiente manera:
   - Suma principal: **$+$** (la que une los dos lados de la expresión)
   *(En el árbol, todos los operadores quedan como nodos internos).*
 
----
+
 
 ## 2. Construcción Manual del Árbol de Expresión
 
@@ -41,11 +38,11 @@ Para armarlo manualmente respetando la precedencia de los operadores:
 
 ### Dibujo del Árbol de Expresión:
 
-![Árbol de Expresión del Punto 2](imagenes/arbol_expresion_punto2.png)
+![Árbol de Expresión del Punto 2](../imagenes/arbol_expresion_punto2.png)
 
 *(En el dibujo puse los operadores en círculos azules como nodos internos y los operandos en círculos amarillos como hojas).*
 
----
+
 
 ## 3. Recorridos del Árbol
 
@@ -71,7 +68,7 @@ Resuelvo primero los dos hijos y por último visito la raíz de la operación:
 a 3 + b 2 - * c 4 / +
 ```
 
----
+
 
 ## 4. Relación con las Notaciones
 
@@ -81,7 +78,7 @@ Cada recorrido corresponde exactamente a una forma estándar de escribir expresi
 - **El recorrido en Inorden** nos da la **notación infija**, que es la que usamos normalmente en matemáticas donde el operador va en medio de los dos operandos.
 - **El recorrido en Postorden** nos da la **notación postfija** (conocida como Notación Polaca Inversa o RPN), donde el operador va después de sus operandos.
 
----
+
 
 ## 5. Evaluación Manual del Árbol
 
@@ -94,7 +91,7 @@ Como la regla del taller dice que debemos hacerlo **recorriendo el árbol** (pos
 
 ### Dibujo de la Evaluación Paso a Paso:
 
-![Evaluación Paso a Paso del Árbol de Expresión](imagenes/evaluacion_expresion_punto2.png)
+![Evaluación Paso a Paso del Árbol de Expresión](../imagenes/evaluacion_expresion_punto2.png)
 
 ### Paso a paso detallado:
 1. **Subárbol izquierdo inferior 1 ($+$):**  
@@ -111,7 +108,7 @@ Como la regla del taller dice que debemos hacerlo **recorriendo el árbol** (pos
 
 **Resultado final:** **51**
 
----
+
 
 ## 6. Preguntas de Análisis
 
