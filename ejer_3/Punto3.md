@@ -2,9 +2,10 @@
 
 
 ## ¿De qué trata este punto?
-En este punto trabajamos con el árbol general del **Punto 1** (un árbol donde cada nodo puede tener cualquier cantidad de hijos). El objetivo fue:
+En este punto trabajamos con el árbol general del Punto 1 (un árbol donde cada nodo puede tener cualquier cantidad de hijos). El objetivo fue:
+
 1. Crear en código la estructura del árbol.
-2. Implementar el recorrido en profundidad (**DFS**) tanto de manera recursiva como iterativa con una pila.
+2. Implementar el recorrido en profundidad (DFS) tanto de manera recursiva como iterativa con una pila.
 3. Crear las funciones para buscar valores, contar las hojas y calcular la altura.
 4. Realizar las pruebas de búsqueda solicitadas (un nodo cerca a la raíz, uno del último nivel y uno que no exista).
 5. Analizar la complejidad y el consumo de memoria.
@@ -13,7 +14,7 @@ En este punto trabajamos con el árbol general del **Punto 1** (un árbol donde 
 
 ## 1. Cómo representé el Árbol General en Código
 
-Para no complicarnos con librerías raras, armé una clase sencilla en Python llamada `Nodo`. Cada nodo guarda su letra (`valor`) y tiene una lista simple (`hijos`) donde se agregan sus hijos directos:
+Armé una clase sencilla en Python llamada `Nodo`. Cada nodo guarda su letra (`valor`) y tiene una lista simple (`hijos`) donde se agregan sus hijos directos:
 
 ```python
 class Nodo:
