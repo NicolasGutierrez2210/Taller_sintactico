@@ -63,7 +63,8 @@ En el siguiente dibujo muestro el camino que sigue DFS bajando siempre por la ra
 ![Recorrido DFS Preorden](../imagenes/recorrido_dfs_punto3.png)
 
 ### Secuencia del recorrido completo:
-$$\text{A } (\#1) \to \text{B } (\#2) \to \text{E } (\#3) \to \text{F } (\#4) \to \text{J } (\#5) \to \text{C } (\#6) \to \text{G } (\#7) \to \text{D } (\#8) \to \text{H } (\#9) \to \text{K } (\#10) \to \text{L } (\#11) \to \text{I } (\#12)$$
+
+$$ \text{A } (\#1) \to \text{B } (\#2) \to \text{E } (\#3) \to \text{F } (\#4) \to \text{J } (\#5) \to \text{C } (\#6) \to \text{G } (\#7) \to \text{D } (\#8) \to \text{H } (\#9) \to \text{K } (\#10) \to \text{L } (\#11) \to \text{I } (\#12) $$
 
 - **Resultado DFS Recursivo:** `A, B, E, F, J, C, G, D, H, K, L, I`
 - **Resultado DFS Iterativo:** `A, B, E, F, J, C, G, D, H, K, L, I`  
