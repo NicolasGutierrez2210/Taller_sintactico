@@ -1,8 +1,5 @@
 # Taller de Árboles - Punto 3: Recorridos en Profundidad (DFS)
-**Materia:** Lenguajes de Programación y Traducción  
-**Estudiante:** Yeimy Beltrán  
 
----
 
 ## ¿De qué trata este punto?
 En este punto trabajamos con el árbol general del **Punto 1** (un árbol donde cada nodo puede tener cualquier cantidad de hijos). El objetivo fue:
@@ -12,7 +9,7 @@ En este punto trabajamos con el árbol general del **Punto 1** (un árbol donde 
 4. Realizar las pruebas de búsqueda solicitadas (un nodo cerca a la raíz, uno del último nivel y uno que no exista).
 5. Analizar la complejidad y el consumo de memoria.
 
----
+
 
 ## 1. Cómo representé el Árbol General en Código
 
@@ -36,7 +33,7 @@ Para armar el árbol del Punto 1, simplemente creé los nodos de la `A` a la `L`
 - F tiene a J
 - H tiene a K, L
 
----
+
 
 ## 2. Los Algoritmos de DFS que se Hicieron
 
@@ -57,13 +54,13 @@ Revisa cada nodo: si su lista de hijos está vacía (`not nodo.hijos`), signific
 ### 5. Cálculo de la Altura con DFS
 Si el nodo es una hoja su altura es 0. Si tiene hijos, calcula la altura máxima entre sus hijos y le suma 1 ($1 + \max(\text{alturas})$).
 
----
+
 
 ## 3. Dibujo del Recorrido DFS (Orden de Visita)
 
 En el siguiente dibujo muestro el camino que sigue DFS bajando siempre por la rama izquierda hasta el fondo antes de devolverse (*backtracking*):
 
-![Recorrido DFS Preorden](imagenes/recorrido_dfs_punto3.png)
+![Recorrido DFS Preorden](../imagenes/recorrido_dfs_punto3.png)
 
 ### Secuencia del recorrido completo:
 $$\text{A } (\#1) \to \text{B } (\#2) \to \text{E } (\#3) \to \text{F } (\#4) \to \text{J } (\#5) \to \text{C } (\#6) \to \text{G } (\#7) \to \text{D } (\#8) \to \text{H } (\#9) \to \text{K } (\#10) \to \text{L } (\#11) \to \text{I } (\#12)$$
@@ -76,13 +73,13 @@ $$\text{A } (\#1) \to \text{B } (\#2) \to \text{E } (\#3) \to \text{F } (\#4) \t
 - **Número de hojas:** **6** (son los nodos: E, G, I, J, K, L).
 - **Altura del árbol:** **3** (camino más largo: A $\to$ B $\to$ F $\to$ J o A $\to$ D $\to$ H $\to$ L).
 
----
+
 
 ## 4. Pruebas de Búsqueda Solicitadas
 
 Nos pidieron probar tres casos de búsqueda en el árbol. Aquí está la visualización gráfica de qué nodos visitó en cada prueba:
 
-![Visualización de Pruebas de Búsqueda DFS](imagenes/busqueda_dfs_pruebas_punto3.png)
+![Visualización de Pruebas de Búsqueda DFS](../imagenes/busqueda_dfs_pruebas_punto3.png)
 
 ### Detalle de cada caso:
 
@@ -106,7 +103,7 @@ Nos pidieron probar tres casos de búsqueda en el árbol. Aquí está la visuali
 - **¿Fue encontrado?:** No (no encontrado).
 - **Cantidad de nodos visitados:** **12** (visitó todos los nodos del árbol para confirmar que no estaba).
 
----
+
 
 ## 5. Análisis de Complejidad
 
@@ -130,7 +127,7 @@ Nos pidieron probar tres casos de búsqueda en el árbol. Aquí está la visuali
    - En un **árbol balanceado**, la altura es bajita ($h \approx \log N$), así que la pila solo necesita guardar poquitos nodos a la vez (por ejemplo, en un árbol de 1000 nodos balanceados, la altura sería apenas de unos 10 niveles).
    - En un **árbol completamente desbalanceado** (como una línea recta donde cada nodo solo tiene un hijo hacia abajo), la altura es igual al total de nodos ($h = N$). En ese caso la memoria de la pila se dispara a **$O(N)$**, guardando casi todo el árbol en la memoria al mismo tiempo.
 
----
+
 
 ## 6. Código en Python
 
