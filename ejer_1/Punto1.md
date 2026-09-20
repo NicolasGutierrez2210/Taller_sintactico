@@ -1,8 +1,5 @@
 # Taller de Árboles - Punto 1: Conceptos y Representación
-**Materia:** Lenguajes de Programación y Traducción  
-**Estudiante:** Yeimy Beltrán  
 
----
 
 ## ¿De qué trata este punto?
 En este primer punto nos dan una lista con las relaciones entre nodos padre e hijos para armar un árbol general. A partir de esa información, dibujé el árbol a mano/diagrama y respondí las preguntas sobre sus partes, relaciones, medidas y clasificación.
@@ -15,7 +12,7 @@ Las relaciones que nos dieron fueron:
 - **F** es padre de: **J**
 - **H** es padre de: **K, L**
 
----
+
 
 ## 1. Dibujo del Árbol
 
@@ -25,7 +22,7 @@ Aquí está el árbol dibujado con sus conexiones, niveles y la diferenciación 
 
 *(Explicación de cómo lo dibujé: Empecé colocando la raíz **A** arriba en el Nivel 0. Como **A** tiene tres hijos (**B, C, D**), los coloqué en el Nivel 1. Luego fui sacando los hijos de cada uno: de **B** saqué a **E** y **F**, de **C** saqué a **G**, y de **D** saqué a **H** e **I** en el Nivel 2. Por último, en el Nivel 3 dibujé a **J** que es hijo de **F**, y a **K** y **L** que son hijos de **H**).*
 
----
+
 
 ## 2. Partes del Árbol y Relaciones entre Nodos
 
@@ -44,7 +41,7 @@ Aquí está el árbol dibujado con sus conexiones, niveles y la diferenciación 
 - **¿Cuáles son los hermanos de H?**  
   El hermano de **H** es **I** (porque los dos son hijos directos del mismo padre **D**).
 
----
+
 
 ## 3. Grados, Profundidad y Altura
 
@@ -75,7 +72,7 @@ Aquí está el árbol dibujado con sus conexiones, niveles y la diferenciación 
 - **Altura:** **3** (es la distancia o número de aristas desde la raíz **A** hasta las hojas más lejanas que son **J, K o L**).  
 *(Nota: si el profesor cuenta la altura por número de niveles de nodos, entonces sería **4**).*
 
----
+
 
 ## 4. Clasificación del Árbol
 
@@ -86,7 +83,7 @@ Aquí está el árbol dibujado con sus conexiones, niveles y la diferenciación 
 - **¿Es balanceado?**  
   **No**, porque sus ramas tienen alturas muy distintas. Por ejemplo, por el lado de **C** el camino se termina en el nivel 2 con **G**, mientras que por los lados de **B** y **D** las ramas bajan hasta el nivel 3 con **J, K y L**.
 
----
+
 
 ## 5. Análisis de Complejidad
 
