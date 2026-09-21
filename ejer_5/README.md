@@ -1,10 +1,3 @@
-# Punto 5: Aplicación al Análisis Sintáctico Descendente
-**Taller de Árboles, Recorridos y Complejidad Computacional**  
-*Curso:* Lenguajes de Programación y Traducción — Universidad Sergio Arboleda  
-*Entorno de ejecución:* Linux / WSL / Python 3.10+  
-
----
-
 ## Introduccion
 
 Para resolver este ejercicio conectamos de manera directa los conceptos trabajados en los puntos previos del taller:
@@ -40,7 +33,7 @@ $$\langle \mathbf{id}_1, \; \mathbf{+}, \; \mathbf{id}_2, \; \mathbf{*}, \; \mat
 
 ## Representación gráfica del arbol sintáctico
 
-A continuación se presenta el árbol sintáctico concreto (*Parse Tree*) generado para la expresión:
+A continuación se presenta el árbol sintáctico concreto (*Parse Tree*) generado para la expresión (diagrama mermaid):
 
 ```mermaid
 graph TD
@@ -145,23 +138,26 @@ El orden cronológico exacto de instanciación de los **19 nodos** es:
 
 #### 1. DFS en Preorden (Raíz $\to$ Subárboles de izquierda a derecha)
 Secuencia de visita:
-$$\mathbf{E_{(1)} \to T_{(2)} \to F_{(3)} \to id_{(4)} \to T'_{(5)} \to \varepsilon_{(6)} \to E'_{(7)} \to +_{(8)} \to T_{(9)} \to F_{(10)} \to id_{(11)} \to T'_{(12)} \to *_{(13)} \to F_{(14)} \to id_{(15)} \to T'_{(16)} \to \varepsilon_{(17)} \to E'_{(18)} \to \varepsilon_{(19)}}$$
+
+$$\mathbf{E_{(1)} \to T_{(2)} \to F_{(3)} \to id_{(4)} \to T'_{(5)} \to \varepsilon_{(6)} \to E'_{(7)} \to +_{(8)} \to T_{(9)} \to F_{(10)} \to id_{(11)} \to T'_{(12)} \to \ast_{(13)} \to F_{(14)} \to id_{(15)} \to T'_{(16)} \to \varepsilon_{(17)} \to E'_{(18)} \to \varepsilon_{(19)}}$$
 
 #### 2. DFS en Postorden (Subárboles de izquierda a derecha $\to$ Raíz)
 Secuencia de visita:
-$$\mathbf{id_{(4)} \to F_{(3)} \to \varepsilon_{(6)} \to T'_{(5)} \to T_{(2)} \to +_{(8)} \to id_{(11)} \to F_{(10)} \to *_{(13)} \to id_{(15)} \to F_{(14)} \to \varepsilon_{(17)} \to T'_{(16)} \to T'_{(12)} \to T_{(9)} \to \varepsilon_{(19)} \to E'_{(18)} \to E'_{(7)} \to E_{(1)}}$$
+
+$$\mathbf{id_{(4)} \to F_{(3)} \to \varepsilon_{(6)} \to T'_{(5)} \to T_{(2)} \to +_{(8)} \to id_{(11)} \to F_{(10)} \to \ast_{(13)} \to id_{(15)} \to F_{(14)} \to \varepsilon_{(17)} \to T'_{(16)} \to T'_{(12)} \to T_{(9)} \to \varepsilon_{(19)} \to E'_{(18)} \to E'_{(7)} \to E_{(1)}}$$
 
 #### 3. BFS (Recorrido en Anchura — Nivel por Nivel utilizando una Cola)
 Distribución por niveles:
 - **Nivel 0:** $E_{(1)}$
 - **Nivel 1:** $T_{(2)}, \; E'_{(7)}$
-- **Nivel 2:** $F_{(3)}, \; T'_{(5)}, \; +_{(8)}, \; T_{(9)}, \; E'_{(18)}$
-- **Nivel 3:** $id_{(4)}, \; \varepsilon_{(6)}, \; F_{(10)}, \; T'_{(12)}, \; \varepsilon_{(19)}$
-- **Nivel 4:** $id_{(11)}, \; *_{(13)}, \; F_{(14)}, \; T'_{(16)}$
+- **Nivel 2:** $F$<sub>(3)</sub>, $T'$<sub>(5)</sub>, $+$<sub>(8)</sub>, $T$<sub>(9)</sub>, $E'$<sub>(18)</sub>
+- **Nivel 3:** $id$<sub>(4)</sub>, $\varepsilon$<sub>(6)</sub>, $F$<sub>(10)</sub>, $T'$<sub>(12)</sub>, $\varepsilon$<sub>(19)</sub>
+- **Nivel 4:** $id_{(11)}, \; \ast_{(13)}, \; F_{(14)}, \; T'_{(16)}$
 - **Nivel 5:** $id_{(15)}, \; \varepsilon_{(17)}$
 
 Secuencia completa BFS:
-$$\mathbf{E_{(1)} \to T_{(2)} \to E'_{(7)} \to F_{(3)} \to T'_{(5)} \to +_{(8)} \to T_{(9)} \to E'_{(18)} \to id_{(4)} \to \varepsilon_{(6)} \to F_{(10)} \to T'_{(12)} \to \varepsilon_{(19)} \to id_{(11)} \to *_{(13)} \to F_{(14)} \to T'_{(16)} \to id_{(15)} \to \varepsilon_{(17)}}$$
+
+$$\mathbf{E_{(1)} \to T_{(2)} \to E'_{(7)} \to F_{(3)} \to T'_{(5)} \to +_{(8)} \to T_{(9)} \to E'_{(18)} \to id_{(4)} \to \varepsilon_{(6)} \to F_{(10)} \to T'_{(12)} \to \varepsilon_{(19)} \to id_{(11)} \to \ast_{(13)} \to F_{(14)} \to T'_{(16)} \to id_{(15)} \to \varepsilon_{(17)}}$$
 
 ---
 
@@ -170,7 +166,7 @@ $$\mathbf{E_{(1)} \to T_{(2)} \to E'_{(7)} \to F_{(3)} \to T'_{(5)} \to +_{(8)} 
 1. **DFS en Preorden:**
    - **Información estructural y generativa:** Proporciona el orden cronológico en el que el compilador descubre y predice las estructuras sintácticas a partir de la gramática.
    - **Correspondencia directa:** Coincide exactamente con la **derivación más a la izquierda** (*leftmost derivation*).
-   - **Uso en compiladores:** Es fundamental para propagar **atributos heredados** (*inherited attributes*), como pasar el tipo de dato de una declaración hacia las variables hijas, o comunicar tablas de símbolos desde un ámbito superior (*scope*) hacia los bloques internos.
+   - **Uso en compiladores:** Es fundamental para propagar **atributos heredados**, como pasar el tipo de dato de una declaración hacia las variables hijas, o comunicar tablas de símbolos desde un ámbito superior (*scope*) hacia los bloques internos.
 
 2. **DFS en Postorden:**
    - **Información de resolución y síntesis:** Garantiza que los hijos (operandos y subexpresiones) se visiten y resuelvan **antes** que sus nodos padres.
@@ -221,7 +217,7 @@ Por lo tanto: **a mayor precedencia de un operador, mayor es su profundidad en e
 
 ### Actividad 7: Algoritmo para métricas del árbol sintáctico
 
-A continuación se propone el algoritmo en pseudocódigo y su implementación en Python, el cual realiza un recorrido recursivo en profundidad visitando cada nodo una vez (complejidad óptima $O(N)$):
+Aqui se presenta el algoritmo en pseudocódigo y su implementación en Python, el cual realiza un recorrido recursivo en profundidad visitando cada nodo una vez (complejidad óptima $O(N)$):
 
 #### Pseudocódigo
 ```text
@@ -294,7 +290,7 @@ Diligenciamiento de la tabla comparativa solicitada en la página 6 del taller:
 
 ---
 
-## Guía de Ejecución en Linux y WSL
+## Guía de ejecución en Linux y WSL
 
 El código está desarrollado en Python estándar y solo requiere `matplotlib` para la generación de las figuras vectoriales y de alta resolución.
 
@@ -305,7 +301,7 @@ cd punto5sintactico
 ```
 
 ### 2. Crear y activar entorno virtual (Recomendado)
-En cualquier distribución de Linux (Ubuntu, Debian, Fedora, Arch) o en WSL:
+En cualquier distribución de Linux o en WSL:
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -320,13 +316,3 @@ pip install matplotlib pillow
 ```bash
 python3 punto5.py
 ```
-
-### 5. Salida esperada
-Al ejecutar el comando verás en consola:
-- La traza paso a paso del parser predictivo con las reglas aplicadas y los tokens consumidos.
-- El árbol sintáctico impreso jerárquicamente en formato ASCII.
-- Las secuencias completas de los tres recorridos (**DFS Preorden**, **DFS Postorden**, **BFS**).
-- El reporte de métricas computadas (terminales, no terminales, $\varepsilon$, altura).
-- La generación automática de los diagramas:
-  - `arbol_sintactico.png` y `arbol_sintactico.svg`
-  - `arbol_sintactico_numerado.png` y `arbol_sintactico_numerado.svg`
