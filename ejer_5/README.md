@@ -5,9 +5,7 @@
 
 ---
 
-## Introducción y Contexto del Problema
-
-¡Hola! En este repositorio resolvemos de forma detallada, paso a paso y con explicaciones claras (en lenguaje natural de estudiante pero con todo el rigor conceptual de la materia) el **Punto 5 del Taller de Análisis Sintáctico**.
+## Introduccion
 
 Para resolver este ejercicio conectamos de manera directa los conceptos trabajados en los puntos previos del taller:
 - **Punto 1:** Propiedades fundamentales de los árboles (raíz, hojas, nodos internos, grado, profundidad, altura).
@@ -15,13 +13,9 @@ Para resolver este ejercicio conectamos de manera directa los conceptos trabajad
 - **Punto 3:** Recorridos en profundidad (**DFS**) y uso de la pila de ejecución.
 - **Punto 4:** Recorridos en anchura (**BFS**) y exploración nivel por nivel mediante colas.
 
-Tomamos como base teórica los materiales del curso ubicados en la carpeta de referencias:
-- **Aho, Lam, Sethi & Ullman (Dragon Book):** *Compiladores: Principios, Técnicas y Herramientas* (capítulo sobre análisis sintáctico descendente y gramáticas LL(1)).
-- **Stanford CS143 (Handouts de Maggie Johnson, Julie Zelenski y Keith Schwarz):** *Top-Down Parsing* y *Syntax Analysis*, donde se formaliza la eliminación de recursión izquierda y la construcción del árbol de análisis sintáctico (*parse tree*).
-
 ---
 
-## Gramática y Cadena de Entrada
+## Gramática y cadena de entrada
 
 Trabajamos con la gramática estándar de expresiones aritméticas sin recursión izquierda (diseñada para analizadores predictivos descendentes LL(1)):
 
@@ -44,18 +38,9 @@ $$\langle \mathbf{id}_1, \; \mathbf{+}, \; \mathbf{id}_2, \; \mathbf{*}, \; \mat
 
 ---
 
-## Representación Gráfica del Árbol Sintáctico
+## Representación gráfica del arbol sintáctico
 
-A continuación se presenta el árbol sintáctico concreto (*Parse Tree*) generado para la expresión, siguiendo el estilo editorial limpio y elegante solicitado:
-
-![Árbol Sintáctico Concreto](arbol_sintactico.png)
-
-Y aquí la versión con la **numeración del orden de creación de cada nodo (#1 al #19)** producida por el analizador descendente recursivo:
-
-![Árbol Sintáctico con Orden de Creación](arbol_sintactico_numerado.png)
-
-<details>
-<summary>Haz clic para ver el diagrama interactivo en formato Mermaid (renderizado nativo en GitHub)</summary>
+A continuación se presenta el árbol sintáctico concreto (*Parse Tree*) generado para la expresión:
 
 ```mermaid
 graph TD
@@ -94,11 +79,10 @@ graph TD
     class N1,N2,N3,N5,N7,N9,N10,N12,N14,N16,N18 nonterminal;
     class N6,N17,N19 epsilon;
 ```
-</details>
 
 ---
 
-## Desarrollo Paso a Paso de las Actividades
+## Desarrollo paso a paso
 
 ### Actividad 1: Construcción paso a paso del árbol sintáctico por un analizador descendente
 
@@ -181,7 +165,7 @@ $$\mathbf{E_{(1)} \to T_{(2)} \to E'_{(7)} \to F_{(3)} \to T'_{(5)} \to +_{(8)} 
 
 ---
 
-### Actividad 4: ¿Qué información proporciona cada recorrido?
+### Actividad 4: Que información proporciona cada recorrido?
 
 1. **DFS en Preorden:**
    - **Información estructural y generativa:** Proporciona el orden cronológico en el que el compilador descubre y predice las estructuras sintácticas a partir de la gramática.
@@ -237,7 +221,7 @@ Por lo tanto: **a mayor precedencia de un operador, mayor es su profundidad en e
 
 ### Actividad 7: Algoritmo para métricas del árbol sintáctico
 
-A continuación se propone el algoritmo en pseudocódigo y su implementación en Python, el cual realiza un recorrido recursivo en profundidad visitando cada nodo exactamente una sola vez (complejidad óptima $O(N)$):
+A continuación se propone el algoritmo en pseudocódigo y su implementación en Python, el cual realiza un recorrido recursivo en profundidad visitando cada nodo una vez (complejidad óptima $O(N)$):
 
 #### Pseudocódigo
 ```text
@@ -307,8 +291,6 @@ Diligenciamiento de la tabla comparativa solicitada en la página 6 del taller:
 > **¿Por qué los árboles y sus recorridos son fundamentales para implementar un analizador sintáctico descendente?**
 >
 > Los árboles y sus recorridos constituyen la columna vertebral del análisis sintáctico descendente porque materializan la estructura jerárquica implícita en las gramáticas libres de contexto. Mientras que el código fuente es una secuencia unidimensional de caracteres, el árbol sintáctico revela las relaciones de anidamiento, ámbito y precedencia que gobiernan el lenguaje. En este esquema, el analizador predictivo opera descubriendo y construyendo los nodos en un recorrido en profundidad (*DFS preorden*), guiado por la pila de recursión y los símbolos de anticipación. Posteriormente, la fase de traducción y comprobación semántica se apoya en recorridos en *postorden* para sintetizar tipos, evaluar expresiones y generar código intermedio únicamente cuando los subárboles de los operandos han sido resueltos. Por su parte, el recorrido en anchura (*BFS*) permite auditar la frontera de derivación y facilita estrategias óptimas de recuperación ante errores. En conclusión, sin la abstracción del árbol y la disciplina de sus recorridos, resultaría imposible transformar texto plano en un modelo computacional estructurado, validado y ejecutable.
->
-> *(Extensión: 168 palabras)*
 
 ---
 
