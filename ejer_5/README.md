@@ -290,7 +290,7 @@ Diligenciamiento de la tabla comparativa solicitada en la página 6 del taller:
 
 ## Guía de ejecución en Linux y WSL
 
-El código está desarrollado en Python estándar y solo requiere `matplotlib` para la generación de las figuras vectoriales y de alta resolución.
+Está desarrollado en Python estándar y solo requiere `matplotlib` para la generacion de los graficos
 
 ### 1. Clonar el repositorio y entrar a la carpeta
 ```bash
