@@ -294,11 +294,11 @@ El código está desarrollado en Python estándar y solo requiere `matplotlib` p
 
 ### 1. Clonar el repositorio y entrar a la carpeta
 ```bash
-git clone <URL_DE_TU_REPOSITORIO>
+git clone https://github.com/NicolasGutierrez2210/Taller_sintactico.git
 cd punto5sintactico
 ```
 
-### 2. Crear y activar entorno virtual (Recomendado)
+### 2. Crear y activar entorno virtual (recomendado para evitar conflictos entre versiones de dependencias)
 En cualquier distribución de Linux o en WSL:
 ```bash
 python3 -m venv venv
