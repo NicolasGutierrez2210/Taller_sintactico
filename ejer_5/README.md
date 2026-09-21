@@ -25,9 +25,7 @@ $$
 **Cadena a analizar:**
 $$\mathbf{id + id * id}$$
 
-Secuencia de tokens de entrada:
-$$\langle \mathbf{id}_1, \; \mathbf{+}, \; \mathbf{id}_2, \; \mathbf{*}, \; \mathbf{id}_3, \; \mathbf{\$} \rangle$$
-*(donde $\$$ representa el fin de la entrada o EOF)*.
+Secuencia de tokens de entrada: ⟨<b>id</b><sub>1</sub>, <b>+</b>, <b>id</b><sub>2</sub>, <b>*</b>, <b>id</b><sub>3</sub>, <b>$</b>⟩ (donde `$` representa el fin de la entrada o EOF).
 
 ---
 
@@ -186,10 +184,10 @@ Al observar detenidamente los resultados de la Actividad 2 y la Actividad 3:
 - **Orden de creación:** $1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19$.
 - **Recorrido Preorden:** Nodo #1 $\to$ Nodo #2 $\to$ Nodo #3 $\to \dots \to$ Nodo #19.
 
-¡La coincidencia es **100% idéntica**!
+Podemos observar que es identico
 
 **Explicación teórica:**
-Un analizador sintáctico descendente (*top-down parser*) opera bajo el paradigma de descomposición recursiva. Cuando el analizador entra a una regla (por ejemplo, `parse_E()`), **primero** crea el nodo correspondiente al lado izquierdo de la producción (el padre) y **después** realiza llamadas recursivas a sus hijos de izquierda a derecha. 
+Un analizador sintáctico descendente (*top-down parser*) opera bajo el paradigma de descomposición recursiva. Cuando el analizador entra a una regla (por ejemplo, `parse_E()`), primero crea el nodo correspondiente al lado izquierdo de la producción (el padre) y después realiza llamadas recursivas a sus hijos de izquierda a derecha. 
 
 Dado que la pila del sistema operativo (*call stack*) apila la llamada del padre antes de proceder con sus hijos, la estrategia de instanciación del analizador sintáctico descendente implementa, por definición arquitectónica, un **recorrido DFS en Preorden**.
 
@@ -211,7 +209,7 @@ Cuando se realiza la evaluación semántica (la cual se ejecuta en **postorden**
 2. Para que el nodo $T$ (Nivel 2) pueda entregar su valor al nodo $E'$ (donde está la suma `+`), es obligatorio evaluar primero todo su subárbol interior, ejecutando primero la multiplicación.
 3. El resultado de dicha multiplicación es lo que finalmente se suma con el primer `id`.
 
-Por lo tanto: **a mayor precedencia de un operador, mayor es su profundidad en el árbol sintáctico**, obligando a su resolución previa.
+Por lo tanto: a mayor precedencia de un operador, mayor es su profundidad en el árbol sintáctico, obligando a su resolución previa.
 
 ---
 
@@ -282,11 +280,11 @@ Diligenciamiento de la tabla comparativa solicitada en la página 6 del taller:
 
 ---
 
-## Conclusión Final (150 a 200 palabras)
+## Conclusión final
 
-> **¿Por qué los árboles y sus recorridos son fundamentales para implementar un analizador sintáctico descendente?**
->
-> Los árboles y sus recorridos constituyen la columna vertebral del análisis sintáctico descendente porque materializan la estructura jerárquica implícita en las gramáticas libres de contexto. Mientras que el código fuente es una secuencia unidimensional de caracteres, el árbol sintáctico revela las relaciones de anidamiento, ámbito y precedencia que gobiernan el lenguaje. En este esquema, el analizador predictivo opera descubriendo y construyendo los nodos en un recorrido en profundidad (*DFS preorden*), guiado por la pila de recursión y los símbolos de anticipación. Posteriormente, la fase de traducción y comprobación semántica se apoya en recorridos en *postorden* para sintetizar tipos, evaluar expresiones y generar código intermedio únicamente cuando los subárboles de los operandos han sido resueltos. Por su parte, el recorrido en anchura (*BFS*) permite auditar la frontera de derivación y facilita estrategias óptimas de recuperación ante errores. En conclusión, sin la abstracción del árbol y la disciplina de sus recorridos, resultaría imposible transformar texto plano en un modelo computacional estructurado, validado y ejecutable.
+**¿Por qué los árboles y sus recorridos son fundamentales para implementar un analizador sintáctico descendente?**
+
+>Los árboles y sus recorridos constituyen la columna vertebral del análisis sintáctico descendente porque materializan la estructura jerárquica implícita en las gramáticas libres de contexto. Mientras que el código fuente es una secuencia unidimensional de caracteres, el árbol sintáctico revela las relaciones de anidamiento, ámbito y precedencia que gobiernan el lenguaje. En este esquema, el analizador predictivo opera descubriendo y construyendo los nodos en un recorrido en profundidad (*DFS preorden*), guiado por la pila de recursión y los símbolos de anticipación. Posteriormente, la fase de traducción y comprobación semántica se apoya en recorridos en *postorden* para sintetizar tipos, evaluar expresiones y generar código intermedio únicamente cuando los subárboles de los operandos han sido resueltos. Por su parte, el recorrido en anchura (*BFS*) permite auditar la frontera de derivación y facilita estrategias óptimas de recuperación ante errores. En conclusión, sin la abstracción del árbol y la disciplina de sus recorridos, resultaría imposible transformar texto plano en un modelo computacional estructurado, validado y ejecutable.
 
 ---
 
