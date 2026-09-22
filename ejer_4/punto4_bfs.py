@@ -169,17 +169,17 @@ def construir_arbol_ejemplo() -> NodoArbol:
 if __name__ == "__main__":
     arbol = construir_arbol_ejemplo()
 
-    print("=" * 65)
+ 
     print(" REPORTE BFS - EJECUCIÓN (CASO: VALOR EXISTENTE)")
-    print("=" * 65)
+
     imprimir_reporte_bfs(arbol, valor_buscado='G')
 
-    print("\n" + "=" * 65)
+   
     print(" REPORTE BFS - EJECUCIÓN (CASO: VALOR EN ÚLTIMO NIVEL)")
-    print("=" * 65)
+   
     imprimir_reporte_bfs(arbol, valor_buscado='K')
 
-    print("\n" + "=" * 65)
+
     print(" REPORTE BFS - EJECUCIÓN (CASO: VALOR INEXISTENTE)")
-    print("=" * 65)
+ 
     imprimir_reporte_bfs(arbol, valor_buscado='X')
