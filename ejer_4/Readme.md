@@ -16,7 +16,7 @@ Este enfoque es fundamental cuando se desea:
 1. **Analizar la estructura por capas de abstracción:** Observar la expansión de reglas gramaticales nivel a nivel.
 2. **Optimización de caminos mínimos:** Encontrar el nodo más cercano a la raíz (menor profundidad) que satisfaga una propiedad dada sin caer en ramas infinitas o de profundidad arbitraria.
 
-### ¿Para qué se hizo? (Objetivo Práctico)
+### ¿Para qué se hizo? 
 1. **Cumplir los 7 requerimientos del Punto 4:**
    - Recibir la raíz de un árbol general ($n$-ario).
    - Visitar los nodos nivel por nivel.
@@ -28,7 +28,7 @@ Este enfoque es fundamental cuando se desea:
 2. **Validar el formato de salida formal** estipulado en la guía del taller.
 3. **Analizar el comportamiento de memoria y tiempo** de las estructuras FIFO frente a LIFO.
 
-### ¿Cómo se llegó a la solución? (Metodología y Diseño)
+### ¿Cómo se llegó a la solución? 
 1. **Estructura de Datos Dinámica:** Se utilizó la clase `NodoArbol`, permitiendo que cada nodo almacene un valor escalar y una lista dinámica de punteros a sus hijos directos (`hijos: List[NodoArbol]`).
 2. **Uso de Cola FIFO (`collections.deque`):** Para garantizar un tiempo de inserción y extracción $\mathcal{O}(1)$ amortizado por nodo, se empleó una cola de doble extremo (`deque`) operada estrictamente como FIFO (`append` al final, `popleft` al inicio).
 3. **Seguimiento Explícito de Niveles:** Para resolver los puntos 4 y 6 simultáneamente, cada elemento encolado es una tupla `(nodo, nivel)`. La raíz entra con `nivel = 0`, y al expandir sus hijos, estos ingresan con `nivel + 1`.
@@ -64,9 +64,9 @@ Nivel 3:                      [J]       [K] [L]
 El programa genera la salida respetando fielmente la estructura exigida en el taller:
 
 ```text
-=================================================================
+
  REPORTE BFS - EJECUCIÓN (CASO: VALOR EXISTENTE)
-=================================================================
+
 Nivel 0: A
 Nivel 1: B, C, D
 Nivel 2: E, F, G, H, I
@@ -79,9 +79,9 @@ Resultado: encontrado
 Nivel del valor: 2
 Nodos visitados: 7
 
-=================================================================
+
  REPORTE BFS - EJECUCIÓN (CASO: VALOR EN ÚLTIMO NIVEL)
-=================================================================
+
 Nivel 0: A
 Nivel 1: B, C, D
 Nivel 2: E, F, G, H, I
@@ -94,9 +94,9 @@ Resultado: encontrado
 Nivel del valor: 3
 Nodos visitados: 11
 
-=================================================================
+
  REPORTE BFS - EJECUCIÓN (CASO: VALOR INEXISTENTE)
-=================================================================
+
 Nivel 0: A
 Nivel 1: B, C, D
 Nivel 2: E, F, G, H, I
